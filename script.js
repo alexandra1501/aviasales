@@ -37,9 +37,21 @@ inputCitiesFrom.addEventListener('input', () => {
 });
 
 dropdownCitiesFrom.addEventListener('click', (event) => {
-  const target = event.target;
-  if (target.tagName.toLowerCase() === 'li') {
-    inputCitiesFrom.value = target.textContent;
-    dropdownCitiesFrom.textContent = '';
-  };
+  dropdownEvents(dropdownCitiesFrom, inputCitiesFrom, event);
 });
+
+inputCitiesTo.addEventListener('input', () => {
+  showCity(inputCitiesTo, dropdownCitiesTo)
+});
+
+dropdownCitiesTo.addEventListener('click', (event) => {
+  dropdownEvents(dropdownCitiesTo, inputCitiesTo, event);
+});
+
+const dropdownEvents = (dropdown, input, event) => {
+    const target = event.target;
+    if (target.tagName.toLowerCase() === 'li') {
+      input.value = target.textContent;
+      dropdown.textContent = '';
+    };
+};
